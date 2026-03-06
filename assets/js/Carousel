@@ -1,18 +1,28 @@
 window.addEventListener('load', () => {
+  console.log('[carousel] loaded');
+
   document.querySelectorAll('.carousel').forEach((carousel) => {
     const track = carousel.querySelector('.carousel-track');
+    if (!track) {
+      console.warn('[carousel] missing .carousel-track', carousel);
+      return;
+    }
+
     const slides = Array.from(track.querySelectorAll('img'));
     const prevBtn = carousel.querySelector('.carousel-btn.prev');
     const nextBtn = carousel.querySelector('.carousel-btn.next');
     const dotsWrap = carousel.querySelector('.carousel-dots');
 
-    if (!track || slides.length === 0 || !prevBtn || !nextBtn) return;
+    if (slides.length === 0 || !prevBtn || !nextBtn) {
+      console.warn('[carousel] missing slides/buttons', { slides: slides.length, prevBtn, nextBtn });
+      return;
+    }
 
     let index = 0;
 
     // timing rules
-    const AUTO_MS = 5000;  // switch every 5s
-    const HOLD_MS = 8000;  // after click, pause for 8s
+    const AUTO_MS = 5000;  // auto switch every 5s
+    const HOLD_MS = 8000;  // after a click, pause for 8s
 
     let autoTimer = null;
     let resumeTimer = null;
@@ -58,9 +68,7 @@ window.addEventListener('load', () => {
     function holdAuto() {
       stopAuto();
       if (resumeTimer) clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => {
-        startAuto();
-      }, HOLD_MS);
+      resumeTimer = setTimeout(startAuto, HOLD_MS);
     }
 
     prevBtn.addEventListener('click', () => {
@@ -71,20 +79,6 @@ window.addEventListener('load', () => {
     nextBtn.addEventListener('click', () => {
       goTo(index + 1);
       holdAuto();
-    });
-
-    // Optional: swipe support
-    let startX = null;
-    track.addEventListener('touchstart', (e) => (startX = e.touches[0].clientX), { passive: true });
-    track.addEventListener('touchend', (e) => {
-      if (startX === null) return;
-      const endX = e.changedTouches[0].clientX;
-      const dx = endX - startX;
-      if (Math.abs(dx) > 40) {
-        goTo(index + (dx < 0 ? 1 : -1));
-        holdAuto();
-      }
-      startX = null;
     });
 
     update();
