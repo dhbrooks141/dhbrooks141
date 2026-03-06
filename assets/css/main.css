@@ -4776,18 +4776,7 @@ input, select, textarea {
   background: rgba(0, 0, 0, 0.65);
 }
 
-/* --- Mobile tweaks --- */
-@media (max-width: 768px) {
-  .carousel-track img {
-    height: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-track img {
-    height: 240px;
-  }
-}
+/* --- PDF Reader --- */
 .pdf-header {
   display: flex;
   align-items: center;
@@ -4808,8 +4797,12 @@ input, select, textarea {
 }
 
 .pdf-frame {
-  width: 100%;
-  height: calc(100vh - 260px);
+  display: block;
+  width: calc(100% + 8rem);
+  max-width: none;
+  height: 95vh;
+  margin-left: -4rem;
+  margin-right: -4rem;
   border: 0;
   border-radius: 6px;
   background: #fff;
@@ -4817,14 +4810,21 @@ input, select, textarea {
 
 @media (max-width: 980px) {
   .pdf-frame {
-    height: calc(100vh - 300px);
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+    height: 90vh;
   }
 }
 
 @media (max-width: 736px) {
   .pdf-frame {
-    height: calc(100vh - 320px);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 85vh;
   }
 }
+
 
 
