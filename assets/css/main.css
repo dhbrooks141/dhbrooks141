@@ -2633,31 +2633,40 @@ input, select, textarea {
 				width: 100%;
 			}
 
-		.image.main {
-			display: block;
-			margin: 4rem 0;
-			width: 100%;
-		}
+	.image.main {
+	display: block;
+	margin: 4rem 0;
+	width: 100%;
+	text-align: center;
+}
 
-			.image.main:first-child {
-				margin-top: 0;
-			}
+	.image.main:first-child {
+		margin-top: 0;
+	}
 
-			.image.main img {
-				width: 100%;
-			}
+	.image.main img {
+		width: 100%;
+		max-width: 700px;
+		height: auto;
+		margin: 0 auto;
+		display: block;
+	}
 
-		@media screen and (max-width: 736px) {
+@media screen and (max-width: 736px) {
 
-			.image.fit {
-				margin: 2rem 0;
-			}
+	.image.fit {
+		margin: 2rem 0;
+	}
 
-			.image.main {
-				margin: 2rem 0;
-			}
+	.image.main {
+		margin: 2rem 0;
+	}
 
-		}
+	.image.main img {
+		max-width: 100%;
+	}
+
+}
 
 	a.image {
 		overflow: hidden;
@@ -4825,6 +4834,7 @@ input, select, textarea {
     height: 85vh;
   }
 }
+
 
 
 
