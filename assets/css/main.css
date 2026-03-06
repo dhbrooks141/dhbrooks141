@@ -4718,6 +4718,7 @@ input, select, textarea {
 .carousel-btn {
   position: absolute;
   top: 50%;
+	color: white !important;
   transform: translateY(-50%);
   z-index: 2;
 
@@ -4761,3 +4762,4 @@ input, select, textarea {
 .carousel-dots button.is-active {
   background: rgba(0,0,0,0.65);
 }
+
