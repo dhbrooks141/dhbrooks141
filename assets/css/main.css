@@ -4707,6 +4707,7 @@ input, select, textarea {
 .carousel-viewport {
   overflow: hidden;
   border-radius: 6px;
+  background: #fff;
 }
 
 .carousel-track {
@@ -4837,6 +4838,32 @@ input, select, textarea {
   }
 }
 
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+} 
 
 
 
