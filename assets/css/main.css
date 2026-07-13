@@ -4712,6 +4712,7 @@ input, select, textarea {
 
 .carousel-track {
   display: flex;
+  align-items: center;
   transition: transform 300ms ease;
   will-change: transform;
 }
@@ -4719,11 +4720,11 @@ input, select, textarea {
 .carousel-track img {
   flex: 0 0 100%;
   width: 100%;
-  height: 420px;
+  height: auto;
+  max-height: 420px;
   object-fit: contain;
   object-position: center;
   display: block;
-  background: #fff;
 }
 
 /* --- Buttons (responsive + always white) --- */
