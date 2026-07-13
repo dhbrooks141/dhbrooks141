@@ -4718,9 +4718,11 @@ input, select, textarea {
 .carousel-track img {
   flex: 0 0 100%;
   width: 100%;
-  height: 420px;          /* desktop height */
-  object-fit: cover;
+  height: 420px;
+  object-fit: contain;
+  object-position: center;
   display: block;
+  background: #fff;
 }
 
 /* --- Buttons (responsive + always white) --- */
