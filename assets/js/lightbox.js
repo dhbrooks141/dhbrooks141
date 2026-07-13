@@ -1,17 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
 	const lightbox = document.getElementById("lightbox");
-	const lightboxImg = document.querySelector(".lightbox-img");
+	const lightboxImage = document.querySelector(".lightbox-img");
 	const closeButton = document.querySelector(".lightbox-close");
 
-	document.querySelectorAll(".carousel-track img").forEach(function (image) {
-		image.style.cursor = "zoom-in";
+	document.addEventListener("click", function (event) {
+		const clickedImage = event.target.closest(".carousel-track img");
 
-		image.addEventListener("click", function () {
-			lightboxImg.src = image.src;
-			lightboxImg.alt = image.alt;
+		if (clickedImage) {
+			lightboxImage.src = clickedImage.src;
+			lightboxImage.alt = clickedImage.alt;
 			lightbox.classList.add("is-open");
-		});
+			document.body.style.overflow = "hidden";
+		}
 	});
+
+	function closeLightbox() {
+		lightbox.classList.remove("is-open");
+		lightboxImage.src = "";
+		document.body.style.overflow = "";
+	}
 
 	closeButton.addEventListener("click", closeLightbox);
 
@@ -26,9 +33,4 @@ document.addEventListener("DOMContentLoaded", function () {
 			closeLightbox();
 		}
 	});
-
-	function closeLightbox() {
-		lightbox.classList.remove("is-open");
-		lightboxImg.src = "";
-	}
 });
