@@ -26,7 +26,7 @@ section, summary, time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;}
 
-article, aside, details, figcaption, figure,
+article, aside, details, figcaption, figufre,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
@@ -4720,20 +4720,13 @@ input, select, textarea {
 .carousel-track img {
   flex: 0 0 100%;
   width: 100%;
-  height: auto;
-  max-height: 420px;
+  height: 420px;
   object-fit: contain;
   object-position: center;
   display: block;
+  background: #fff;
+}
 
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-.carousel-track img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 0 4px rgba(24, 191, 239, 0.8);
-  opacity: 0.92;
-}
 /* --- Buttons (responsive + always white) --- */
 .carousel-btn {
   position: absolute;
@@ -4844,54 +4837,6 @@ input, select, textarea {
     margin-right: 0;
     height: 85vh;
   }
-}
-
-/* --- Lightbox --- */
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.92);
-}
-
-.lightbox.is-open {
-  display: flex;
-}
-
-.lightbox-img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 95vw;
-  max-height: 90vh;
-  object-fit: contain;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-}
-
-.lightbox-close {
-  position: fixed;
-  top: 1rem;
-  right: 1.5rem;
-  z-index: 100000;
-  width: auto;
-  height: auto;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  color: #fff !important;
-  font-size: 3rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.lightbox-close:hover {
-  background: transparent;
-  color: #ccc !important;
 }
 
 
